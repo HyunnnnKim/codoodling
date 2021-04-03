@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System;
 
 [CustomEditor(typeof(CurvePointsCreator))]
 public class CurvesEditor : Editor
@@ -61,10 +60,8 @@ public class CurvesEditor : Editor
         }
     }
 
-    [System.Obsolete]
     private void OnSceneGUI()
     {
-        /* testing has obsolete */
         if (_useTest)
         {
             DrawTestPoints();
@@ -109,7 +106,6 @@ public class CurvesEditor : Editor
         }
     }
 
-    [System.Obsolete]
     private void DrawTestLines()
     {
         Vector3[] points = _curve.GetPoints();
@@ -121,21 +117,21 @@ public class CurvesEditor : Editor
                 for (float t = 0; t <= 1; t += 0.01f)
                 {
                     var point = Curves.LinearBezierCurves(points[0], points[1], t);
-                    Handles.SphereCap(0, point, Quaternion.identity, 0.02f); // Obsolete
+                    Handles.SphereHandleCap(0, point, Quaternion.identity, 0.02f, EventType.Repaint);
                 }
                 break;
             case CurveType.Quadratic:
                 for (float t = 0; t <= 1; t += 0.01f)
                 {
                     var point = Curves.QuadraticBezierCurves(points[0], points[1], points[2], t);
-                    Handles.SphereCap(0, point, Quaternion.identity, 0.02f); // Obsolete
+                    Handles.SphereHandleCap(0, point, Quaternion.identity, 0.02f, EventType.Repaint);
                 }
                 break;
             case CurveType.Cubic:
                 for (float t = 0; t <= 1; t += 0.01f)
                 {
                     var point = Curves.CubicBezierCurves(points[0], points[1], points[2], points[3], t);
-                    Handles.SphereCap(0, point, Quaternion.identity, 0.02f); // Obsolete
+                    Handles.SphereHandleCap(0, point, Quaternion.identity, 0.02f, EventType.Repaint);
                 }
                 break;
         }
