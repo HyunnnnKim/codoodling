@@ -10,27 +10,24 @@ public class ScrollController : MonoBehaviour
     #region Serialized Field
     [Header("Content")]
     [SerializeField, Range(20, 100)]
-    private int _contentNumber = 20;
+    private int contentNumber = 20;
     [SerializeField]
-    private Transform _contentRoot = null;
+    private ScrollRect scrollRect = null;
     [SerializeField]
-    private GameObject _content = null;
+    private GameObject contentPrefab = null;
 
     [Header("Buttons")]
     [SerializeField]
-    private EventTrigger _leftButton = null;
+    private EventTrigger leftButton = null;
     [SerializeField]
-    private EventTrigger _rightButton = null;
+    private EventTrigger rightButton = null;
     [SerializeField]
-    private float _scrollSpeed = 1f;
+    private float scrollSpeed = 0.03f;
     #endregion
 
     #region Private Field
-    private List<GameObject> _contentList = null;
-    private ScrollRect _scrollRect = null;
-
-    private bool _pointerPressed = false;
-    private UIButton _selectedButton = UIButton.Left;
+    private List<GameObject> contentList = null;
+    private bool isPressed = false;
     #endregion
 
     private void Start()
@@ -42,52 +39,57 @@ public class ScrollController : MonoBehaviour
     private void Setup()
     {
         StartCoroutine(CreateContents());
-        _scrollRect = GetComponentInChildren<ScrollRect>();
 
-        var pointerDownEntry = new EventTrigger.Entry();
-        pointerDownEntry.eventID = EventTriggerType.PointerDown;
-        pointerDownEntry.callback.AddListener((data) => OnPointerDown((PointerEventData)data));
+        var leftDownEntry = new EventTrigger.Entry();
+        leftDownEntry.eventID = EventTriggerType.PointerDown;
+        leftDownEntry.callback.AddListener((data) => OnLeftPointerDown((PointerEventData)data));
 
-        var pointerUpEntry = new EventTrigger.Entry();
-        pointerUpEntry.eventID = EventTriggerType.PointerUp;
-        pointerUpEntry.callback.AddListener((data) => OnPointerUp((PointerEventData)data));
+        var rightDownEntry = new EventTrigger.Entry();
+        rightDownEntry.eventID = EventTriggerType.PointerDown;
+        rightDownEntry.callback.AddListener((data) => OnRightPointerDown((PointerEventData)data));
 
-        var pointerHoverEntry = new EventTrigger.Entry();
-        pointerHoverEntry.eventID = EventTriggerType.PointerEnter;
-        pointerHoverEntry.callback.AddListener((data) => OnPointerSelect((PointerEventData)data));
+        var upEntry = new EventTrigger.Entry();
+        upEntry.eventID = EventTriggerType.PointerUp;
+        upEntry.callback.AddListener((data) => OnPointerUp((PointerEventData)data));
 
-        _leftButton.triggers.Add(pointerDownEntry);
-        _leftButton.triggers.Add(pointerUpEntry);
-        _leftButton.triggers.Add(pointerHoverEntry);
+        leftButton.triggers.Add(leftDownEntry);
+        leftButton.triggers.Add(upEntry);
 
-        _rightButton.triggers.Add(pointerDownEntry);
-        _rightButton.triggers.Add(pointerUpEntry);
-        _rightButton.triggers.Add(pointerHoverEntry);
+        rightButton.triggers.Add(rightDownEntry);
+        rightButton.triggers.Add(upEntry);
     }
     #endregion
 
-    #region Buttons
-    private void OnPointerDown(PointerEventData data)
+    #region Subscribed Functions
+    /// <summary>
+    /// Called on Left Button PointerDown Event.
+    /// </summary>
+    /// <param name="data"></param>
+    private void OnLeftPointerDown(PointerEventData data)
     {
-        _pointerPressed = true;
+        isPressed = true;
+        float ratio = scrollRect.horizontalScrollbar.size;
+        StartCoroutine(Scroll(-1, ratio));
     }
 
+    /// <summary>
+    /// Called on Right Button PointerDown Event.
+    /// </summary>
+    /// <param name="data"></param>
+    private void OnRightPointerDown(PointerEventData data)
+    {
+        isPressed = true;
+        float ratio = scrollRect.horizontalScrollbar.size;
+        StartCoroutine(Scroll(+1, ratio));
+    }
+
+    /// <summary>
+    /// Called on any Button PointerUp Event.
+    /// </summary>
+    /// <param name="data"></param>
     private void OnPointerUp(PointerEventData data)
     {
-        _pointerPressed = false;
-    }
-
-    private void OnPointerSelect(PointerEventData data)
-    {
-        var button = data.hovered.FirstOrDefault();
-        if (button.transform.parent.gameObject == _leftButton.gameObject)
-        {
-            if (_selectedButton != UIButton.Left) _selectedButton = UIButton.Left;
-        }
-        else if (button.transform.parent.gameObject == _rightButton.gameObject)
-        {
-            if (_selectedButton != UIButton.Right) _selectedButton = UIButton.Right;
-        }
+        isPressed = false;
     }
     #endregion
 
@@ -97,39 +99,27 @@ public class ScrollController : MonoBehaviour
         {
             StartCoroutine(CreateContents());
         }
-
-        if (_pointerPressed)
-        {
-            if (_selectedButton.Equals(UIButton.Left))
-            {
-                ScrollLeft();
-            }
-            else if (_selectedButton.Equals(UIButton.Right))
-            {
-                ScrollRight();
-            }
-        }
     }
 
     #region Content Creation
     private IEnumerator CreateContents()
     {
-        if (_contentList == null)
-            _contentList = new List<GameObject>();
-        while (_contentList.Count != _contentNumber)
+        if (contentList == null)
+            contentList = new List<GameObject>();
+        while (contentList.Count != contentNumber)
         {
-            if (_contentList.Count > _contentNumber)
+            if (contentList.Count > contentNumber)
             {
-                Destroy(_contentList.Last());
-                _contentList.RemoveAt(_contentList.Count - 1);
+                Destroy(contentList.Last());
+                contentList.RemoveAt(contentList.Count - 1);
                 yield return null;
             }
             else
             {
-                var button = Instantiate(_content, _contentRoot);
+                var button = Instantiate(contentPrefab, scrollRect.content);
                 var img = button.GetComponent<Image>();
                 img.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-                _contentList.Add(button);
+                contentList.Add(button);
                 yield return null;
             }
         }
@@ -137,23 +127,14 @@ public class ScrollController : MonoBehaviour
     #endregion
 
     #region Scrolling
-    private void ScrollLeft()
+    private IEnumerator Scroll(int sign, float ratio)
     {
-        Scroll(-1);
-    }
-
-    private void ScrollRight()
-    {
-        Scroll(+1);
-    }
-
-    private void Scroll(int sign)
-    {
-        var bar = GetComponentInChildren<Scrollbar>();
-        var speed = sign * _scrollSpeed * bar.size;
-        _scrollRect.horizontalNormalizedPosition += speed;
+        var speed = sign * scrollSpeed * ratio;
+        while (isPressed)
+        {
+            scrollRect.horizontalNormalizedPosition += speed;
+            yield return null;
+        }
     }
     #endregion
 }
-
-public enum UIButton { Left, Right }
