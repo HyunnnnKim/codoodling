@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 6551627546164028531}
   - component: {fileID: 6551627546164028528}
   - component: {fileID: 6551627546164028530}
+  - component: {fileID: 6551627546459655816}
   m_Layer: 5
   m_Name: Button_Right
   m_TagString: Untagged
@@ -224,6 +225,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &6551627546459655816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6551627546164028535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8f08844c63540eabdf62be1908563d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedType: 1
 --- !u!1 &6551627546485152321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,6 +1028,7 @@ GameObject:
   - component: {fileID: 6551627547892521179}
   - component: {fileID: 6551627547892521176}
   - component: {fileID: 6551627547892521178}
+  - component: {fileID: 6551627546459655817}
   m_Layer: 5
   m_Name: Button_Left
   m_TagString: Untagged
@@ -1092,6 +1107,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &6551627546459655817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6551627547892521183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8f08844c63540eabdf62be1908563d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedType: 0
 --- !u!1 &6551627547961361151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,9 +1332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contentNumber: 20
+  scrollSpeed: 0.03
   scrollRect: {fileID: 6551627547785076683}
   contentPrefab: {fileID: 1752113837741030348, guid: b9ae4aad913f940699799e86a3288ef0,
     type: 3}
-  leftButton: {fileID: 6551627547892521178}
-  rightButton: {fileID: 6551627546164028530}
-  scrollSpeed: 0.03

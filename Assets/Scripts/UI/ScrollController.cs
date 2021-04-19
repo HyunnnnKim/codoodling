@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ScrollController : MonoBehaviour
@@ -12,17 +11,11 @@ public class ScrollController : MonoBehaviour
     [SerializeField, Range(20, 100)]
     private int contentNumber = 20;
     [SerializeField]
+    private float scrollSpeed = 0.03f;
+    [SerializeField]
     private ScrollRect scrollRect = null;
     [SerializeField]
     private GameObject contentPrefab = null;
-
-    [Header("Buttons")]
-    [SerializeField]
-    private EventTrigger leftButton = null;
-    [SerializeField]
-    private EventTrigger rightButton = null;
-    [SerializeField]
-    private float scrollSpeed = 0.03f;
     #endregion
 
     #region Private Field
@@ -32,64 +25,26 @@ public class ScrollController : MonoBehaviour
 
     private void Start()
     {
-        Setup();
-    }
-
-    #region Initialize
-    private void Setup()
-    {
         StartCoroutine(CreateContents());
-
-        var leftDownEntry = new EventTrigger.Entry();
-        leftDownEntry.eventID = EventTriggerType.PointerDown;
-        leftDownEntry.callback.AddListener((data) => OnLeftPointerDown((PointerEventData)data));
-
-        var rightDownEntry = new EventTrigger.Entry();
-        rightDownEntry.eventID = EventTriggerType.PointerDown;
-        rightDownEntry.callback.AddListener((data) => OnRightPointerDown((PointerEventData)data));
-
-        var upEntry = new EventTrigger.Entry();
-        upEntry.eventID = EventTriggerType.PointerUp;
-        upEntry.callback.AddListener((data) => OnPointerUp((PointerEventData)data));
-
-        leftButton.triggers.Add(leftDownEntry);
-        leftButton.triggers.Add(upEntry);
-
-        rightButton.triggers.Add(rightDownEntry);
-        rightButton.triggers.Add(upEntry);
     }
-    #endregion
+
+    private void OnEnable()
+    {
+        UIButton.OnButtonDown += Scrolling;
+        UIButton.OnButtonUp += NotScrolling;
+    }
 
     #region Subscribed Functions
-    /// <summary>
-    /// Called on Left Button PointerDown Event.
-    /// </summary>
-    /// <param name="data"></param>
-    private void OnLeftPointerDown(PointerEventData data)
+    private void Scrolling(int sign, bool state)
     {
-        isPressed = true;
+        isPressed = state;
         float ratio = scrollRect.horizontalScrollbar.size;
-        StartCoroutine(Scroll(-1, ratio));
+        StartCoroutine(Scroll(sign, ratio));
     }
 
-    /// <summary>
-    /// Called on Right Button PointerDown Event.
-    /// </summary>
-    /// <param name="data"></param>
-    private void OnRightPointerDown(PointerEventData data)
+    private void NotScrolling(bool state)
     {
-        isPressed = true;
-        float ratio = scrollRect.horizontalScrollbar.size;
-        StartCoroutine(Scroll(+1, ratio));
-    }
-
-    /// <summary>
-    /// Called on any Button PointerUp Event.
-    /// </summary>
-    /// <param name="data"></param>
-    private void OnPointerUp(PointerEventData data)
-    {
-        isPressed = false;
+        isPressed = state;
     }
     #endregion
 
@@ -137,4 +92,10 @@ public class ScrollController : MonoBehaviour
         }
     }
     #endregion
+
+    private void OnDisable()
+    {
+        UIButton.OnButtonDown -= Scrolling;
+        UIButton.OnButtonUp -= NotScrolling;
+    }
 }
