@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class VisualizeRandom : MonoBehaviour
@@ -10,8 +9,6 @@ public class VisualizeRandom : MonoBehaviour
     private float standardDeviation = 0f;
     [SerializeField]
     private int elementNum = 100;
-    [SerializeField]
-    private float offset = 3f;
 
     private int _count = 0;
 
