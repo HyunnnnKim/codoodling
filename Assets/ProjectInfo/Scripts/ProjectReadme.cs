@@ -1,36 +1,34 @@
 using System;
 using UnityEngine;
 
+[CreateAssetMenu( fileName = "ProjectReadme", menuName = "Codoodling/Readme", order = 1 )]
 public class ProjectReadme : ScriptableObject
 {
     #region Serialized Field
-    [SerializeField] private Texture2D icon = null;
-    [SerializeField] private string title = null;
-    [SerializeField] private Section[] sections = null;
-    [SerializeField] private bool loadedLayout = false;
+    
+    [SerializeField] private Texture2D icon;
+    public Texture2D Icon => icon;
+    
+    [SerializeField] private string title;
+    public string Title => title ?? "NULL";
+    
+    [SerializeField] private Section[] sections;
+    public Section[] Sections => sections;
+
+    [SerializeField] private bool loadedLayout;
+    public bool LoadedLayout { get => loadedLayout; set => loadedLayout = value; }
+
+    [SerializeField] private Font font;
+    public Font Font => font;
+    
+    #endregion
 
     [Serializable]
     public class Section
     {
-        private string heading = null;
-        private string text = null;
-        private string linkText = null;
-        private string url = null;
-
-        public Section(string heading, string text, string linkText, string url)
-        {
-            this.heading = heading;
-            this.text = text;
-            this.linkText = linkText;
-            this.url = url;
-        }
+        public string heading;
+        public string text;
+        public string linkText;
+        public string url;
     }
-    #endregion
-
-    #region Properties
-    public Texture2D Icon { get => icon; set => icon = value; }
-    public string Title { get => title != null ? title : "NULL"; set => title = value; }
-    public Section[] Sections { get => sections; set => sections = value; }
-    public bool LoadedLayout { get => loadedLayout; set => loadedLayout = value; }
-    #endregion
 }
