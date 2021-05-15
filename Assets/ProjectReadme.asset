@@ -16,12 +16,13 @@ MonoBehaviour:
   title: ' Codoodling'
   sections:
   - heading: Doodling Code
-    text: sdfsdfsdfsdf
-    linkText: link
-    url: 
-  - heading: Title 2
-    text: test 2
+    text: This is a project where I test out random Unity stuff.
     linkText: 
     url: 
+  - heading: About Me
+    text: I'm currently a VR game developer at MIRAGESOFT. You can find more about
+      me in the link down below.
+    linkText: CollieFolio
+    url: https://colliecollie.netlify.app
   loadedLayout: 0
   font: {fileID: 12800000, guid: 82410f34023fe4e52aef4b9ea494e798, type: 3}
