@@ -3,12 +3,9 @@ using UnityEngine;
 
 public class VisualizeRandom : MonoBehaviour
 {
-    [SerializeField]
-    private float mean = 0f;
-    [SerializeField]
-    private float standardDeviation = 0f;
-    [SerializeField]
-    private int elementNum = 100;
+    [SerializeField] private float mean = 0f;
+    [SerializeField] private float standardDeviation = 0f;
+    [SerializeField] private int elementNum = 100;
 
     private int _count = 0;
 
