@@ -33,7 +33,7 @@ public class Orbit : MonoBehaviour
         Revolution();
     }
 
-    #region Orbit Functions
+    #region Orbit
     private void Rotation()
     {
         transform.Rotate(rotAngle, rotSpeed);
