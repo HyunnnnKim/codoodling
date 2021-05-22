@@ -5,10 +5,11 @@ using UnityEngine;
 public class OrbitPhysics : MonoBehaviour
 {
     #region Serialized Field
-    [SerializeField] private Rigidbody target = null;
+    [SerializeField] private Rigidbody targetRb = null;
+    [SerializeField] private float gravityValue = 6.7f;
     #endregion
 
-    private Rigidbody rigidbody = null;
+    private Rigidbody rb = null;
 
     private void Start()
     {
@@ -18,29 +19,21 @@ public class OrbitPhysics : MonoBehaviour
     #region Initialize
     private void Setup()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
     #endregion
 
     private void FixedUpdate()
     {
-        rigidbody.GravetationalPull(target, ForceMode.Force);
+        PhysicalOrbit();
     }
 
     #region Orbit
-
-    #endregion
-}
-
-public static class NewtonsLaw
-{
-    public static void GravetationalPull(this Rigidbody selfRB, Rigidbody targetRB, ForceMode forceMode = ForceMode.Force)
+    private void PhysicalOrbit()
     {
-        Vector3 dir = targetRB.position - selfRB.position;
-        Vector3 gravityDir = dir.normalized;
-        float dst = dir.magnitude;
-        float gravity = 6.7f * (selfRB.mass * targetRB.mass * 80) / (dst * dst);
-        Vector3 gravityVector = gravityDir * gravity;
-        selfRB.AddForce(gravityVector, forceMode);
+        if (rb == null || targetRb == null) return;
+        rb.GravetationalPull(targetRb, gravityValue, ForceMode.Acceleration);
+        rb.AddForce(rb.transform.forward, ForceMode.Acceleration);
     }
+    #endregion
 }
