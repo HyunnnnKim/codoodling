@@ -54,7 +54,7 @@ public class ProjectReadmeEditor : Editor
     {
         var assembly = typeof(EditorApplication).Assembly;
         var windowLayoutType = assembly.GetType("UnityEditor.WindowLayout", true);
-        var method = windowLayoutType.GetMethod("LoadWindowLayout", BindingFlags.Public | BindingFlags.Static);
+        var method = windowLayoutType.GetMethod("LoadWindowLayout", BindingFlags.Static);
         method?.Invoke(null, new object[]{Path.Combine(Application.dataPath, "ProjectInfo/Layout.wlt"), false});
     }
     #endregion
