@@ -17,4 +17,9 @@ public class PlaceCubeCommand : ICommand
     {
         ShapePlacer.PlaceObject(position, color, cube);
     }
+
+    public void Undo()
+    {
+        ShapePlacer.RemoveObject(position, color);
+    }
 }
