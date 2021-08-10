@@ -51,5 +51,5 @@ namespace Gameboy
     }
 
     public enum GameboyButtonType { None, A, B, Select, Start }
-    public enum GameboyAxisType { None, Up, Down, Left, Right }
+    public enum GameboyAxisButtonType { None, Up, Down, Left, Right }
 }

@@ -7,6 +7,7 @@ namespace Gameboy
     public class GameboyButton : GameboyPointerBase
     {
         #region Serialized Field
+        [Header("Button Settings")]
         [SerializeField] private GameboyButtonType buttonType = GameboyButtonType.None;
         [SerializeField] private AnimationCurvesPreset curvesPreset = null;
         #endregion

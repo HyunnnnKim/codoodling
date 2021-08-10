@@ -510,7 +510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e343c5cd3d4a4bca9c00bb7291d9912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axisType: 4
+  axisButtonType: 4
+  axisButton: {fileID: 1651517667940377708}
+  curvesPreset: {fileID: 11400000, guid: b8e4a6afead8646c1920850119b60e8e, type: 2}
 --- !u!1 &5530878624011312833
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e343c5cd3d4a4bca9c00bb7291d9912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axisType: 2
+  axisButtonType: 2
+  axisButton: {fileID: 1651517667940377708}
+  curvesPreset: {fileID: 11400000, guid: b8e4a6afead8646c1920850119b60e8e, type: 2}
 --- !u!1 &6173679904694968943
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +786,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e343c5cd3d4a4bca9c00bb7291d9912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axisType: 3
+  axisButtonType: 3
+  axisButton: {fileID: 1651517667940377708}
+  curvesPreset: {fileID: 11400000, guid: b8e4a6afead8646c1920850119b60e8e, type: 2}
 --- !u!1 &7423645261196585998
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +846,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e343c5cd3d4a4bca9c00bb7291d9912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axisType: 1
+  axisButtonType: 1
+  axisButton: {fileID: 1651517667940377708}
+  curvesPreset: {fileID: 11400000, guid: b8e4a6afead8646c1920850119b60e8e, type: 2}
 --- !u!1 &9019025181376155119
 GameObject:
   m_ObjectHideFlags: 0
