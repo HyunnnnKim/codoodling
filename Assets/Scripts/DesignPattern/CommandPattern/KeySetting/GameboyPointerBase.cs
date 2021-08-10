@@ -9,44 +9,44 @@ namespace Gameboy
         public void OnPointerEnter(PointerEventData eventData)
         {
             eventData.selectedObject = gameObject;
-            ButtonEnterMovement(eventData);
+            ButtonEnterFeedback(eventData);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             eventData.selectedObject = gameObject;
-            ButtonExitMovement(eventData);
+            ButtonExitFeedback(eventData);
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
             eventData.selectedObject = gameObject;
-            ButtonDownMovement(eventData);
+            ButtonDownFeedback(eventData);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             eventData.selectedObject = gameObject;
-            ButtonUpMovement(eventData);
+            ButtonUpFeedback(eventData);
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
             eventData.selectedObject = gameObject;
-            ButtonClickMovement(eventData);
+            ButtonClickFeedback(eventData);
         }
         #endregion
 
         #region Button Feedbacks
-        protected virtual void ButtonEnterMovement(PointerEventData eventData) { }
+        protected virtual void ButtonEnterFeedback(PointerEventData eventData) { }
 
-        protected virtual void ButtonExitMovement(PointerEventData eventData) { }
+        protected virtual void ButtonExitFeedback(PointerEventData eventData) { }
 
-        protected virtual void ButtonDownMovement(PointerEventData eventData) { }
+        protected virtual void ButtonDownFeedback(PointerEventData eventData) { }
 
-        protected virtual void ButtonUpMovement(PointerEventData eventData) { }
+        protected virtual void ButtonUpFeedback(PointerEventData eventData) { }
 
-        protected virtual void ButtonClickMovement(PointerEventData eventData) { }
+        protected virtual void ButtonClickFeedback(PointerEventData eventData) { }
         #endregion
     }
 

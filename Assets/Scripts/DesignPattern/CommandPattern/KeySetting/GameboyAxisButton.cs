@@ -10,7 +10,7 @@ namespace Gameboy
         #endregion
 
         #region Button Feedbacks
-        protected override void ButtonEnterMovement(PointerEventData eventData)
+        protected override void ButtonEnterFeedback(PointerEventData eventData)
         {
             if (gameObject.GetInstanceID() != eventData.selectedObject.GetInstanceID()) return;
 
