@@ -39,22 +39,16 @@ namespace Gameboy
         #region Button Feedbacks
         protected override void ButtonEnterFeedback(PointerEventData eventData)
         {
-            if (gameObject.GetInstanceID() != eventData.selectedObject.GetInstanceID()) return;
-
 
         }
 
         protected override void ButtonExitFeedback(PointerEventData eventData)
         {
-            if (gameObject.GetInstanceID() != eventData.selectedObject.GetInstanceID()) return;
-
 
         }
 
         protected override void ButtonDownFeedback(PointerEventData eventData)
         {
-            if (gameObject.GetInstanceID() != eventData.selectedObject.GetInstanceID()) return;
-
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
             buttonMovementCoroutine = StartCoroutine(ButtonSmoothMovement(pressPos, curvesPreset.EaseOut, 0.6f));
@@ -63,8 +57,6 @@ namespace Gameboy
 
         protected override void ButtonUpFeedback(PointerEventData eventData)
         {
-            if (gameObject.GetInstanceID() != eventData.selectedObject.GetInstanceID()) return;
-
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
             StartCoroutine(ButtonSmoothMovement(originPos, curvesPreset.EaseOut, 0.3f));

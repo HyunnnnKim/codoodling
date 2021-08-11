@@ -8,31 +8,26 @@ namespace Gameboy
         #region Pointer Callbacks
         public void OnPointerEnter(PointerEventData eventData)
         {
-            eventData.selectedObject = gameObject;
             ButtonEnterFeedback(eventData);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            eventData.selectedObject = gameObject;
             ButtonExitFeedback(eventData);
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            eventData.selectedObject = gameObject;
             ButtonDownFeedback(eventData);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            eventData.selectedObject = gameObject;
             ButtonUpFeedback(eventData);
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            eventData.selectedObject = gameObject;
             ButtonClickFeedback(eventData);
         }
         #endregion

@@ -23,29 +23,19 @@ namespace Gameboy
         private Coroutine buttonMovementCoroutine = null;
         #endregion
 
-        #region Initialize
-
-        #endregion
-
         #region Button Feedbacks
         protected override void ButtonEnterFeedback(PointerEventData eventData)
         {
-            if (gameObject.GetInstanceID() != eventData.selectedObject.GetInstanceID()) return;
-
 
         }
 
         protected override void ButtonExitFeedback(PointerEventData eventData)
         {
-            if (gameObject.GetInstanceID() != eventData.selectedObject.GetInstanceID()) return;
-
 
         }
 
         protected override void ButtonDownFeedback(PointerEventData eventData)
         {
-            if (gameObject.GetInstanceID() != eventData.selectedObject.GetInstanceID()) return;
-
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
             var targetRot = GetTargetRotation();
@@ -55,8 +45,6 @@ namespace Gameboy
 
         protected override void ButtonUpFeedback(PointerEventData eventData)
         {
-            if (gameObject.GetInstanceID() != eventData.selectedObject.GetInstanceID()) return;
-
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
             buttonMovementCoroutine = StartCoroutine(ButtonSmoothMovement(Quaternion.identity, curvesPreset.EaseOut, 0.6f));
