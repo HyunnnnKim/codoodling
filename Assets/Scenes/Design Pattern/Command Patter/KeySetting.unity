@@ -872,6 +872,17 @@ PrefabInstance:
       objectReference: {fileID: 1502354664}
     - target: {fileID: 1371609394290430314, guid: 8727555b129c94a16863aa623ddc72f4,
         type: 3}
+      propertyPath: showcaseCam
+      value: 
+      objectReference: {fileID: 997877633}
+    - target: {fileID: 1371609394290430314, guid: 8727555b129c94a16863aa623ddc72f4,
+        type: 3}
+      propertyPath: curvesPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: b8e4a6afead8646c1920850119b60e8e,
+        type: 2}
+    - target: {fileID: 1371609394290430314, guid: 8727555b129c94a16863aa623ddc72f4,
+        type: 3}
       propertyPath: showcaseObject
       value: 
       objectReference: {fileID: 92721984}

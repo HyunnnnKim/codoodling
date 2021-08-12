@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -51,7 +50,7 @@ namespace Gameboy
         {
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
-            buttonMovementCoroutine = StartCoroutine(ButtonSmoothMovement(pressPos, curvesPreset.EaseOut, 0.6f));
+            buttonMovementCoroutine = StartCoroutine(transform.Lerp(pressPos, 0.6f, curvesPreset.EaseOut));
             ButtonAction?.Invoke(buttonType);
         }
 
@@ -59,24 +58,13 @@ namespace Gameboy
         {
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
-            StartCoroutine(ButtonSmoothMovement(originPos, curvesPreset.EaseOut, 0.3f));
+            StartCoroutine(transform.Lerp(originPos, 0.3f, curvesPreset.EaseOut));
             ButtonAction?.Invoke(buttonType);
         }
         #endregion
 
         #region Button Movements
-        private IEnumerator ButtonSmoothMovement(Vector3 targetPos, AnimationCurve curve, float duration)
-        {
-            var elapsedTime = 0f;
-            while (elapsedTime < duration)
-            {
-                var lerpVal = Vector3.Lerp(transform.localPosition, targetPos, curve.Evaluate(elapsedTime / duration));
-                transform.localPosition = lerpVal;
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-            transform.localPosition = targetPos;
-        }
+        
         #endregion
 
         #region Button Effects

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -39,7 +38,7 @@ namespace Gameboy
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
             var targetRot = GetTargetRotation();
-            buttonMovementCoroutine = StartCoroutine(ButtonSmoothMovement(targetRot, curvesPreset.EaseOut, 0.6f));
+            buttonMovementCoroutine = StartCoroutine(axisButton.Lerp(targetRot, 0.6f, curvesPreset.EaseOut));
             AxisButtonAction?.Invoke(axisButtonType);
         }
 
@@ -47,25 +46,12 @@ namespace Gameboy
         {
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
-            buttonMovementCoroutine = StartCoroutine(ButtonSmoothMovement(Quaternion.identity, curvesPreset.EaseOut, 0.6f));
+            buttonMovementCoroutine = StartCoroutine(axisButton.Lerp(Quaternion.identity, 0.6f, curvesPreset.EaseOut));
             AxisButtonAction?.Invoke(axisButtonType);
         }
         #endregion
 
         #region Button Movements
-        private IEnumerator ButtonSmoothMovement(Quaternion targetRot, AnimationCurve curve, float duration)
-        {
-            var elapsedTime = 0f;
-            while (elapsedTime < duration)
-            {
-                var lerpVal = Quaternion.Lerp(axisButton.localRotation, targetRot, curve.Evaluate(elapsedTime / duration));
-                axisButton.localRotation = lerpVal;
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
-            axisButton.localRotation = targetRot;
-        }
-
         private Quaternion GetTargetRotation()
         {
             switch (axisButtonType)

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
@@ -11,6 +12,7 @@ namespace Gameboy
         [SerializeField] private Transform showcaseObject = null;
         [SerializeField] private float rotSpeed = 6f;
         [SerializeField] private float rotDamping = 2f;
+        [SerializeField] private AnimationCurvesPreset curvesPreset = null;
 
         [Header("Camera Settings")]
         [SerializeField] private Transform showcaseCam = null;
@@ -21,11 +23,14 @@ namespace Gameboy
         private bool isDragging = false;
         private float rotVelocityX = 0f;
         private float rotVelocityY = 0f;
+        private Quaternion originRot = Quaternion.identity;
+        private bool isCoroutineRunning = false;
         #endregion
 
         private void Awake()
         {
             showcaseObject.parent = transform;
+            originRot = showcaseObject.localRotation;
         }
 
         #region Drag Callback
@@ -56,6 +61,7 @@ namespace Gameboy
         {
             VelocityXMovement();
             VelocityYMovement();
+            StartCoroutine(BackToOriginPos());
         }
 
         #region Showcase Movement
@@ -84,6 +90,24 @@ namespace Gameboy
                 showcaseObject.Rotate(Vector3.forward, -rotVelocityY, Space.Self);
             }
         }
+
+        private IEnumerator BackToOriginPos()
+        {
+            if (!isDragging && Mathf.Approximately(rotVelocityX, 0) && Mathf.Approximately(rotVelocityY, 0) && showcaseObject.localRotation != originRot)
+            {
+                if (isCoroutineRunning) yield break;
+                isCoroutineRunning = true;
+
+                yield return new WaitForSeconds(2f);
+                yield return showcaseObject.Lerp(originRot, 1f, curvesPreset.EaseInOut);
+
+                isCoroutineRunning = false;
+            }
+        }
+        #endregion
+
+        #region Camerawork
+
         #endregion
     }
 }
