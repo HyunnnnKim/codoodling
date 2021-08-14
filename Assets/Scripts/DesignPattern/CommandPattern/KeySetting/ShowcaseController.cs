@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
 
 namespace Gameboy
 {
@@ -13,10 +12,6 @@ namespace Gameboy
         [SerializeField] private float rotSpeed = 6f;
         [SerializeField] private float rotDamping = 2f;
         [SerializeField] private AnimationCurvesPreset curvesPreset = null;
-
-        [Header("Camera Settings")]
-        [SerializeField] private Transform showcaseCam = null;
-        [SerializeField] private Volume volume = null;
         #endregion
 
         #region Private Field
@@ -104,10 +99,6 @@ namespace Gameboy
                 isCoroutineRunning = false;
             }
         }
-        #endregion
-
-        #region Camerawork
-
         #endregion
     }
 }

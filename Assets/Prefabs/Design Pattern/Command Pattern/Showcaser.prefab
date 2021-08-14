@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1371609394290430315}
   - component: {fileID: 1371609394290430314}
+  - component: {fileID: 1371609395081080542}
   m_Layer: 0
   m_Name: Showcaser
   m_TagString: Untagged
@@ -46,5 +47,20 @@ MonoBehaviour:
   showcaseObject: {fileID: 0}
   rotSpeed: 6
   rotDamping: 2
-  showcaseCam: {fileID: 0}
+  curvesPreset: {fileID: 11400000, guid: b8e4a6afead8646c1920850119b60e8e, type: 2}
+--- !u!114 &1371609395081080542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371609394290430313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dbd50aa185254d3e9815d274e725aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
   volume: {fileID: 0}
+  focusDelay: 0
+  curves: {fileID: 11400000, guid: b8e4a6afead8646c1920850119b60e8e, type: 2}
