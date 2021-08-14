@@ -36,10 +36,12 @@ namespace Gameboy
 
         public void OnDrag(PointerEventData eventData)
         {
-            var rodDeltaX = eventData.delta.x * rotSpeed * Time.deltaTime;
+            if (eventData.pointerId != -1) return;
+
+            var rotDeltaX = eventData.delta.x * rotSpeed * Time.deltaTime;
             var rotDeltaY = eventData.delta.y * rotSpeed * Time.deltaTime;
 
-            rotVelocityX = Mathf.Lerp(rotVelocityX, rodDeltaX, Time.deltaTime);
+            rotVelocityX = Mathf.Lerp(rotVelocityX, rotDeltaX, Time.deltaTime);
             rotVelocityY = Mathf.Lerp(rotVelocityY, rotDeltaY, Time.deltaTime);
 
             showcaseObject.Rotate(Vector3.up, -rotVelocityX, Space.Self);
