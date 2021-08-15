@@ -61,6 +61,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+  lookAtTarget: {fileID: 0}
   volume: {fileID: 0}
   focusDelay: 0
+  rotSpeed: 30
+  focusRotSpeed: 5
+  focusRotDamping: 0.1
   curves: {fileID: 11400000, guid: b8e4a6afead8646c1920850119b60e8e, type: 2}

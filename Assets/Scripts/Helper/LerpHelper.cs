@@ -21,11 +21,11 @@ public static class LerpHelper
         var elapsedTime = 0f;
         while (elapsedTime < duration)
         {
-            var lerpVal = Vector3.Lerp(transform.position, targetPos, curve.Evaluate(elapsedTime / duration));
-            transform.position = lerpVal;
+            var lerpVal = Vector3.Lerp(transform.localPosition, targetPos, curve.Evaluate(elapsedTime / duration));
+            transform.localPosition = lerpVal;
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        transform.position = targetPos;
+        transform.localPosition = targetPos;
     }
 }
