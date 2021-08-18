@@ -673,8 +673,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d68a69d75794c768fd6db3aea1e0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 0.02
+  scrollSpeed: 0.01
   backgroundLayer:
+  - {fileID: 4951647168435108040}
   - {fileID: 3412135845303459968}
   - {fileID: 1339665157602916201}
   - {fileID: 5571029230477718166}
@@ -685,7 +686,6 @@ MonoBehaviour:
   - {fileID: 3648945435051386819}
   - {fileID: 3142121162211326947}
   - {fileID: 4444801593458534024}
-  scrollVec: {x: 0, y: 0}
 --- !u!1 &3704215428343346289
 GameObject:
   m_ObjectHideFlags: 0
