@@ -673,18 +673,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d68a69d75794c768fd6db3aea1e0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 6
+  scrollSpeed: 0.02
   backgroundLayer:
-  - {fileID: 6097806164611836133}
-  - {fileID: 6106864495733878516}
-  - {fileID: 2971851455738433933}
-  - {fileID: 4972504200336423719}
-  - {fileID: 7290275776469746332}
-  - {fileID: 2705384254834260687}
-  - {fileID: 7532590034703581847}
-  - {fileID: 8236997399888333356}
-  - {fileID: 3173009569880094349}
-  - {fileID: 5491435747310890477}
+  - {fileID: 3412135845303459968}
+  - {fileID: 1339665157602916201}
+  - {fileID: 5571029230477718166}
+  - {fileID: 7693394052451064031}
+  - {fileID: 6116834262900834365}
+  - {fileID: 5613329501857112663}
+  - {fileID: 746677178047080933}
+  - {fileID: 3648945435051386819}
+  - {fileID: 3142121162211326947}
+  - {fileID: 4444801593458534024}
+  scrollVec: {x: 0, y: 0}
 --- !u!1 &3704215428343346289
 GameObject:
   m_ObjectHideFlags: 0
