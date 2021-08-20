@@ -6,6 +6,5 @@ Bunch of random testing in Unity.
 - [x] Input (using Scriptable Object)
 - [x] Third Persom Controller (using Rigidbody and Cinemachine)
 - [x] Gaussian Random (using Marsaglia Polar Method)
-- [x] Bezier Curve (using Editor Script)
 - [ ] QuadTree
 - [ ] Octree
