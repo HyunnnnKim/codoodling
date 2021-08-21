@@ -673,19 +673,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d68a69d75794c768fd6db3aea1e0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 0.01
-  backgroundLayer:
-  - {fileID: 4951647168435108040}
-  - {fileID: 3412135845303459968}
-  - {fileID: 1339665157602916201}
-  - {fileID: 5571029230477718166}
-  - {fileID: 7693394052451064031}
-  - {fileID: 6116834262900834365}
-  - {fileID: 5613329501857112663}
-  - {fileID: 746677178047080933}
-  - {fileID: 3648945435051386819}
-  - {fileID: 3142121162211326947}
-  - {fileID: 4444801593458534024}
+  scrollSpeed: 0.16
+  layers:
+  - background: {fileID: 4444801593458534024}
+    parallaxValue: 1
+  - background: {fileID: 3142121162211326947}
+    parallaxValue: 0.8
+  - background: {fileID: 3648945435051386819}
+    parallaxValue: 0.8
+  - background: {fileID: 746677178047080933}
+    parallaxValue: 0.75
+  - background: {fileID: 5613329501857112663}
+    parallaxValue: 0.75
+  - background: {fileID: 6116834262900834365}
+    parallaxValue: 0.65
+  - background: {fileID: 7693394052451064031}
+    parallaxValue: 0.5
+  - background: {fileID: 5571029230477718166}
+    parallaxValue: 0.65
+  - background: {fileID: 1339665157602916201}
+    parallaxValue: 0.5
+  - background: {fileID: 3412135845303459968}
+    parallaxValue: 0.4
+  - background: {fileID: 4951647168435108040}
+    parallaxValue: 0.3
+  material: {fileID: 2100000, guid: 47313bad8bbaf4b9ab37e33c59d25fb0, type: 2}
 --- !u!1 &3704215428343346289
 GameObject:
   m_ObjectHideFlags: 0
