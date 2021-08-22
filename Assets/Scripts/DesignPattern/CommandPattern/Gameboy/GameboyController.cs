@@ -6,7 +6,7 @@ namespace Gameboy
     {
         private void OnEnable()
         {
-            GameboyButton.ButtonAction += ButtonA;
+            GameboyButton.OnButtonDown += ButtonA;
         }
 
         #region Button Logics
@@ -35,7 +35,7 @@ namespace Gameboy
 
         private void OnDisable()
         {
-            GameboyButton.ButtonAction -= ButtonA;
+            GameboyButton.OnButtonDown -= ButtonA;
         }
     }
 }

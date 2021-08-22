@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Coco_Idle
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 512
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: e08c3af5f2da5434e9773a6f8e582562, type: 3}
+    totalSpriteSurfaceArea: 115200
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 99d30df21d59b48f8a5dec50a6b9744e, type: 3}
+  - {fileID: 21300000, guid: fa56fdd30c07e41a4aebfe27a9516497, type: 3}
+  - {fileID: 21300000, guid: ff0759592ba0449e29a5a8176f741191, type: 3}
+  - {fileID: 21300000, guid: 240a631dd8f434e66b9b1f31d1c7982c, type: 3}
+  - {fileID: 21300000, guid: 299ac03f455d54d009669d727942d6a3, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Coco_Idle_2
+  - Coco_Idle_1
+  - Coco_Idle_5
+  - Coco_Idle_4
+  - Coco_Idle_3
+  m_RenderDataMap: {}
+  m_Tag: Coco_Idle
+  m_IsVariant: 0

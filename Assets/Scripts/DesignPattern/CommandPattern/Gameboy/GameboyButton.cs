@@ -11,16 +11,17 @@ namespace Gameboy
         [SerializeField] private AnimationCurvesPreset curvesPreset = null;
         #endregion
 
-        #region Delegates
-        public delegate void GameboyButtonDelegate(GameboyButtonType buttonType);
-        public static event GameboyButtonDelegate ButtonAction = null;
-        #endregion
-
         #region Private Field
         private Collider buttonCollider = null;
         private Vector3 originPos = Vector3.zero;
         private Vector3 pressPos = Vector3.zero;
         private Coroutine buttonMovementCoroutine = null;
+        #endregion
+
+        #region Delegates
+        public delegate void GameboyButtonDelegate(GameboyButtonType buttonType);
+        public static event GameboyButtonDelegate OnButtonDown = null;
+        public static event GameboyButtonDelegate OnButtonUp = null;
         #endregion
 
         private void Start()
@@ -50,16 +51,16 @@ namespace Gameboy
         {
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
-            buttonMovementCoroutine = StartCoroutine(transform.Lerp(pressPos, 0.6f, curvesPreset.EaseOut));
-            ButtonAction?.Invoke(buttonType);
+            buttonMovementCoroutine = StartCoroutine(transform.LerpLocal(pressPos, 0.6f, curvesPreset.EaseOut));
+            OnButtonDown?.Invoke(buttonType);
         }
 
         protected override void ButtonUpFeedback(PointerEventData eventData)
         {
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
-            StartCoroutine(transform.Lerp(originPos, 0.3f, curvesPreset.EaseOut));
-            ButtonAction?.Invoke(buttonType);
+            StartCoroutine(transform.LerpLocal(originPos, 0.3f, curvesPreset.EaseOut));
+            OnButtonUp?.Invoke(buttonType);
         }
         #endregion
 

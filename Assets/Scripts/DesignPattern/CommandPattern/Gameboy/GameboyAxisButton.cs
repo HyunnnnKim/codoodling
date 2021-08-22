@@ -14,7 +14,8 @@ namespace Gameboy
 
         #region Delegates
         public delegate void GameboyAxisButtonDelegate(GameboyAxisButtonType axisType);
-        public static event GameboyAxisButtonDelegate AxisButtonAction = null;
+        public static event GameboyAxisButtonDelegate OnAxisButtonDown = null;
+        public static event GameboyAxisButtonDelegate OnAxisButtonUp = null;
         #endregion
 
         #region Private Field
@@ -39,7 +40,7 @@ namespace Gameboy
                 StopCoroutine(buttonMovementCoroutine);
             var targetRot = GetTargetRotation();
             buttonMovementCoroutine = StartCoroutine(axisButton.Lerp(targetRot, 0.6f, curvesPreset.EaseOut));
-            AxisButtonAction?.Invoke(axisButtonType);
+            OnAxisButtonDown?.Invoke(axisButtonType);
         }
 
         protected override void ButtonUpFeedback(PointerEventData eventData)
@@ -47,7 +48,7 @@ namespace Gameboy
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
             buttonMovementCoroutine = StartCoroutine(axisButton.Lerp(Quaternion.identity, 0.6f, curvesPreset.EaseOut));
-            AxisButtonAction?.Invoke(axisButtonType);
+            OnAxisButtonUp?.Invoke(axisButtonType);
         }
         #endregion
 

@@ -3,42 +3,75 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BackgroundMovement : MonoBehaviour
+namespace Gameboy
 {
-    #region Serialized Field
-    [SerializeField] private float scrollSpeed = 3f;
-    [SerializeField] private List<BackgroundLayer> layers = null;
-    [SerializeField] private Material material = null;
-    #endregion
-
-    private void Start()
+    public class BackgroundMovement : MonoBehaviour
     {
-        InitMaterials();
-    }
+        #region Serialized Field
+        [SerializeField] private float scrollSpeed = 3f;
+        [SerializeField] private List<BackgroundLayer> layers = null;
+        [SerializeField] private Material material = null;
+        #endregion
 
-    #region Initialize
-    private void InitMaterials()
-    {
-        foreach (var layer in layers)
+        #region Privte Field
+        private bool backgroundMoveState = false;
+        #endregion
+
+        private void OnEnable()
         {
-            layer.background.material = new Material(material);
+            GameboyAxisButton.OnAxisButtonDown += AxisButtonDownMovement;
+            GameboyAxisButton.OnAxisButtonUp += AxisButtonUpMovement;
         }
-    }
-    #endregion
 
-    private void Update()
-    {
-        ParallaxMovement();
-    }
-
-    private void ParallaxMovement()
-    {
-        foreach (var layer in layers)
+        private void Start()
         {
-            var offset = layer.background.materialForRendering.mainTextureOffset;
-            offset.x += (scrollSpeed * Time.deltaTime) * layer.parallaxValue;
-            /* using layer.material won't work if the Image component is child to the Mask Component. */
-            layer.background.materialForRendering.mainTextureOffset = offset;
+            InitMaterials();
+        }
+
+        #region Initialize
+        private void InitMaterials()
+        {
+            foreach (var layer in layers)
+            {
+                layer.background.material = new Material(material);
+            }
+        }
+        #endregion
+
+        private void Update()
+        {
+            ParallaxMovement();
+        }
+
+        #region Background Movement
+        private void ParallaxMovement()
+        {
+            if (backgroundMoveState == false) return;
+
+            foreach (var layer in layers)
+            {
+                var offset = layer.background.materialForRendering.mainTextureOffset;
+                offset.x += (scrollSpeed * Time.deltaTime) * layer.parallaxValue;
+                /* using layer.material won't work if the Image component is child to the Mask Component. */
+                layer.background.materialForRendering.mainTextureOffset = offset;
+            }
+        }
+
+        private void AxisButtonDownMovement(GameboyAxisButtonType butonDir)
+        {
+            backgroundMoveState = true;
+        }
+
+        private void AxisButtonUpMovement(GameboyAxisButtonType butonDir)
+        {
+            backgroundMoveState = false;
+        }
+        #endregion
+
+        private void OnDisable()
+        {
+            GameboyAxisButton.OnAxisButtonDown -= AxisButtonDownMovement;
+            GameboyAxisButton.OnAxisButtonUp -= AxisButtonUpMovement;
         }
     }
 }
