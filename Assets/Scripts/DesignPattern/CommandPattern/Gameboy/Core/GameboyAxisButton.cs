@@ -12,26 +12,28 @@ namespace Gameboy
         [SerializeField] private AnimationCurvesPreset curvesPreset = null;
         #endregion
 
+        #region Private Field
+        private float pressVal = 10f;
+        private Coroutine buttonMovementCoroutine = null;
+        #endregion
+
         #region Delegates
         public delegate void GameboyAxisButtonDelegate(GameboyAxisButtonType axisType);
         public static event GameboyAxisButtonDelegate OnAxisButtonDown = null;
         public static event GameboyAxisButtonDelegate OnAxisButtonUp = null;
         #endregion
 
-        #region Private Field
-        private float pressVal = 10f;
-        private Coroutine buttonMovementCoroutine = null;
-        #endregion
-
         #region Button Feedbacks
         protected override void ButtonEnterFeedback(PointerEventData eventData)
         {
-
+            // Hover in sound
+            // Hover in effect
         }
 
         protected override void ButtonExitFeedback(PointerEventData eventData)
         {
-
+            // Hover in sound
+            // Hover in effect
         }
 
         protected override void ButtonDownFeedback(PointerEventData eventData)
@@ -40,6 +42,10 @@ namespace Gameboy
                 StopCoroutine(buttonMovementCoroutine);
             var targetRot = GetTargetRotation();
             buttonMovementCoroutine = StartCoroutine(axisButton.Lerp(targetRot, 0.6f, curvesPreset.EaseOut));
+
+            // Hover in sound
+            // Hover in effect
+
             OnAxisButtonDown?.Invoke(axisButtonType);
         }
 
@@ -48,6 +54,10 @@ namespace Gameboy
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
             buttonMovementCoroutine = StartCoroutine(axisButton.Lerp(Quaternion.identity, 0.6f, curvesPreset.EaseOut));
+
+            // Hover in sound
+            // Hover in effect
+
             OnAxisButtonUp?.Invoke(axisButtonType);
         }
         #endregion

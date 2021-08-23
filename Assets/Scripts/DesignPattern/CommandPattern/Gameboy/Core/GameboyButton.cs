@@ -39,12 +39,14 @@ namespace Gameboy
         #region Button Feedbacks
         protected override void ButtonEnterFeedback(PointerEventData eventData)
         {
-
+            // Hover in sound
+            // Hover in effect
         }
 
         protected override void ButtonExitFeedback(PointerEventData eventData)
         {
-
+            // Hover in sound
+            // Hover in effect
         }
 
         protected override void ButtonDownFeedback(PointerEventData eventData)
@@ -52,6 +54,10 @@ namespace Gameboy
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
             buttonMovementCoroutine = StartCoroutine(transform.LerpLocal(pressPos, 0.6f, curvesPreset.EaseOut));
+
+            // Hover in sound
+            // Hover in effect
+
             OnButtonDown?.Invoke(buttonType);
         }
 
@@ -60,6 +66,10 @@ namespace Gameboy
             if (buttonMovementCoroutine != null)
                 StopCoroutine(buttonMovementCoroutine);
             StartCoroutine(transform.LerpLocal(originPos, 0.3f, curvesPreset.EaseOut));
+
+            // Hover in sound
+            // Hover in effect
+
             OnButtonUp?.Invoke(buttonType);
         }
         #endregion
