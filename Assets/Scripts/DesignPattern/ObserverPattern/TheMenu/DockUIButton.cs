@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TheMenu
 {
-    public class SideUIButton : BaseUIButton
+    public class DockUIButton : BaseUIButton
     {
         #region Serialized Field
         [Header("Panel")]
@@ -12,7 +12,7 @@ namespace TheMenu
         #endregion
 
         #region Private Field
-        private static List<SideUIButton> sideButtons = new List<SideUIButton>();
+        private static List<DockUIButton> dockButtons = new List<DockUIButton>();
         #endregion
 
         #region UI
