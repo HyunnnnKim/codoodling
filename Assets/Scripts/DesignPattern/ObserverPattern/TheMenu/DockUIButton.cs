@@ -7,8 +7,8 @@ namespace TheMenu
     public class DockUIButton : BaseUIButton
     {
         #region Serialized Field
-        [Header("Panel")]
-        [SerializeField] Canvas contentPanel = null;
+        [Header("Content Panel")]
+        [SerializeField] private Canvas contentPanel = null;
         #endregion
 
         #region Private Field
