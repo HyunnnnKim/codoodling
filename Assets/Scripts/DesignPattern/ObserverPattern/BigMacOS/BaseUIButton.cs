@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace TheMenu
+namespace BigMacOS
 {
     public class BaseUIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
     {
