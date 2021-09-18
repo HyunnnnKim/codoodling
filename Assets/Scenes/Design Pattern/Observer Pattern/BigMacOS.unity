@@ -245,6 +245,12 @@ PrefabInstance:
       propertyPath: contentHolder
       value: 
       objectReference: {fileID: 1588041438}
+    - target: {fileID: 5262046590844637596, guid: 01c3b3f5141064828b4ae6a939f33aad,
+        type: 3}
+      propertyPath: contentPanelPrefab
+      value: 
+      objectReference: {fileID: 7400271504876502101, guid: f177f69188e3b442c8aa86b6a8811786,
+        type: 3}
     - target: {fileID: 6734868044532506160, guid: 01c3b3f5141064828b4ae6a939f33aad,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -733,6 +739,12 @@ PrefabInstance:
       propertyPath: contentHolder
       value: 
       objectReference: {fileID: 1588041438}
+    - target: {fileID: 5262046590844637596, guid: 01c3b3f5141064828b4ae6a939f33aad,
+        type: 3}
+      propertyPath: contentPanelPrefab
+      value: 
+      objectReference: {fileID: 7400271504876502101, guid: 16aca6671a03d41309f69e090ac4cec9,
+        type: 3}
     - target: {fileID: 6734868044532506160, guid: 01c3b3f5141064828b4ae6a939f33aad,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -884,6 +896,12 @@ PrefabInstance:
       propertyPath: contentHolder
       value: 
       objectReference: {fileID: 1588041438}
+    - target: {fileID: 5262046590844637596, guid: 01c3b3f5141064828b4ae6a939f33aad,
+        type: 3}
+      propertyPath: contentPanelPrefab
+      value: 
+      objectReference: {fileID: 7400271504876502101, guid: 35f40ea225ffe4b41bb52d449ea962c1,
+        type: 3}
     - target: {fileID: 6734868044532506160, guid: 01c3b3f5141064828b4ae6a939f33aad,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1035,6 +1053,12 @@ PrefabInstance:
       propertyPath: contentHolder
       value: 
       objectReference: {fileID: 1588041438}
+    - target: {fileID: 5262046590844637596, guid: 01c3b3f5141064828b4ae6a939f33aad,
+        type: 3}
+      propertyPath: contentPanelPrefab
+      value: 
+      objectReference: {fileID: 7400271504876502101, guid: 81f82a12085e14336b9b335dbf568281,
+        type: 3}
     - target: {fileID: 6734868044532506160, guid: 01c3b3f5141064828b4ae6a939f33aad,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1103,7 +1127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -222}
+  m_AnchoredPosition: {x: 0, y: -301}
   m_SizeDelta: {x: 2750.1133, y: 2750.1133}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1236104509
@@ -1270,7 +1294,7 @@ PrefabInstance:
         type: 3}
       propertyPath: contentPanelPrefab
       value: 
-      objectReference: {fileID: 2724352498928969286, guid: 793083b299d1f4fdf90d64bbf2cd349d,
+      objectReference: {fileID: 7400271504876502101, guid: f6c0cd808df864cf48812ee95af52ea0,
         type: 3}
     - target: {fileID: 6734868044532506160, guid: 01c3b3f5141064828b4ae6a939f33aad,
         type: 3}
@@ -1697,6 +1721,12 @@ PrefabInstance:
       propertyPath: contentHolder
       value: 
       objectReference: {fileID: 1588041438}
+    - target: {fileID: 5262046590844637596, guid: 01c3b3f5141064828b4ae6a939f33aad,
+        type: 3}
+      propertyPath: contentPanelPrefab
+      value: 
+      objectReference: {fileID: 7400271504876502101, guid: 291e067866e5841c7a75ea49dafb3b68,
+        type: 3}
     - target: {fileID: 6734868044532506160, guid: 01c3b3f5141064828b4ae6a939f33aad,
         type: 3}
       propertyPath: m_LocalScale.x
