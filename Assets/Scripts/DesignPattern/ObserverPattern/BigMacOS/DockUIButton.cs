@@ -15,6 +15,7 @@ namespace BigMacOS
 
         #region Private Field
         private static List<Canvas> contentPanels = new List<Canvas>();
+        private static List<Canvas> activeContentPanels = new List<Canvas>();
 
         private Canvas panel = null;
         #endregion
@@ -30,6 +31,7 @@ namespace BigMacOS
 
         private void OnEnable()
         {
+            if (panel == null) return;
             contentPanels.Add(panel);
         }
 
@@ -63,21 +65,29 @@ namespace BigMacOS
         {
             if (panel == null) return;
 
-            if (panel.enabled)
-            {
-                for (int i = 0; i < contentPanels.Count; i++)
-                {
-                    if (contentPanels[i] != panel)
-                        contentPanels[i].sortingOrder = i + 1;
-                    else
-                        i--;
-                }
-                panel.sortingOrder = contentPanels.Count;
-            }
-            else
+            if (!panel.enabled)
             {
                 panel.enabled = true;
+                activeContentPanels.Add(panel);
             }
+
+            int sortOrder = 1;
+            int panelSelfIndex = 0;
+            for (int i = 0; i < activeContentPanels.Count; i++)
+            {
+                if (activeContentPanels[i] != panel)
+                {
+                    activeContentPanels[i].sortingOrder = sortOrder;
+                    sortOrder++;
+                }
+                else
+                {
+                    activeContentPanels[i].sortingOrder = activeContentPanels.Count;
+                    panelSelfIndex = i;
+                }
+            }
+            activeContentPanels.RemoveAt(panelSelfIndex);
+            activeContentPanels.Add(panel);
         }
         #endregion
 

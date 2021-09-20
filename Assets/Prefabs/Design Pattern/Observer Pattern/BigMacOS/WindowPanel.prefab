@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &7333445538005222237
 RectTransform:
@@ -79,7 +79,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &6880931844243353707
 RectTransform:
@@ -117,7 +117,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &6368133550779620342
 RectTransform:
@@ -192,7 +192,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &2724352498586262910
 RectTransform:
@@ -271,7 +271,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &2724352498749937820
 RectTransform:
@@ -382,7 +382,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &537606017831981750
 RectTransform:
@@ -514,7 +514,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &3883287594382130903
 RectTransform:
@@ -553,7 +553,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &7317188543320643925
 RectTransform:
@@ -626,7 +626,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &2051591965915941275
 RectTransform:
@@ -665,7 +665,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &2267168586355609445
 RectTransform:
@@ -736,6 +736,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WindowControlButton_Expand
       objectReference: {fileID: 0}
+    - target: {fileID: 1979971689477317140, guid: cfa4281df5ffa4676b3340a21251328d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2371946709969087014, guid: cfa4281df5ffa4676b3340a21251328d,
         type: 3}
       propertyPath: m_Color.b
@@ -750,6 +755,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0.24096651
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678819122406944200, guid: cfa4281df5ffa4676b3340a21251328d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4658113831447932439, guid: cfa4281df5ffa4676b3340a21251328d,
         type: 3}
@@ -876,6 +886,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WindowControlButton_Minimize
       objectReference: {fileID: 0}
+    - target: {fileID: 1979971689477317140, guid: cfa4281df5ffa4676b3340a21251328d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2371946709969087014, guid: cfa4281df5ffa4676b3340a21251328d,
         type: 3}
       propertyPath: m_Color.b
@@ -900,6 +915,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678819122406944200, guid: cfa4281df5ffa4676b3340a21251328d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4658113831447932439, guid: cfa4281df5ffa4676b3340a21251328d,
         type: 3}
@@ -1025,6 +1045,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WindowControlButton_Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979971689477317140, guid: cfa4281df5ffa4676b3340a21251328d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678819122406944200, guid: cfa4281df5ffa4676b3340a21251328d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4658113831447932439, guid: cfa4281df5ffa4676b3340a21251328d,
         type: 3}
