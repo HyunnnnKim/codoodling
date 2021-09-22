@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 553128661572411232}
   - component: {fileID: 5262046590844637596}
   m_Layer: 5
-  m_Name: DockButton
+  m_Name: DockApp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

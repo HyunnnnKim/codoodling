@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace BigMacOS
 {
-    public class WindowControlUIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+    public class WindowControl : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
     {
         #region Pointer Callbacks
         public void OnPointerEnter(PointerEventData eventData)

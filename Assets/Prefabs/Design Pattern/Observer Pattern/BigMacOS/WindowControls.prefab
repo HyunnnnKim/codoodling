@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4658113831447932439}
   - component: {fileID: 8757864300658025382}
   m_Layer: 5
-  m_Name: WindowControlButton
+  m_Name: WindowControls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
